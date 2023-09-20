@@ -65,6 +65,64 @@ class EstructurasControl{
             System.out.println("13.- Calculadora ");
             System.out.println("14.- Salir ");
 
+            opcion = entrada.nextInt();
+
+            //menu
+            switch(opcion){
+                case 1:
+                    break;
+                case 2:
+                    //decimal a binario
+                    System.out.println("Ingresa un numero positivo entero que desee convertir a binario");
+                    numbinario = entrada.nextInt();
+                    //primero tengo que saber que sea positivo?
+                    if(numbinario > 0){
+                        //se cuantas veces el numero se va a dividir entre 2?
+                        while(numbinario > 0){
+                            if(numbinario%2 == 0){
+                                binario = "0" + binario;
+                            }else{
+                                binario = "1" + binario;
+                            }
+                            numbinario = (int)numbinario/2;
+                        }
+                        
+                    }else if(numbinario == 0 ){
+                        binario = "0" + binario;
+                    }else{
+                        binario = "No se puede convertir un numero negativo, solo positivos";
+                    }
+                    System.out.println("El numero binario es: " + binario);
+                    break;
+                case 3: 
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                default:
+                    System.out.println("Elija una opcion valida por fis");
+                    break;
+            }
+
 
 
             //aqui adentro de preguntar
