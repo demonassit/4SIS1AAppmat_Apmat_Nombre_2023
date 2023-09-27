@@ -121,10 +121,31 @@ class EstructurasControl{
                 case 6:
                     break;
                 case 7:
+                    //vamos a imprimir una tabla 
+                    //un ciclo for
+                    for(int n = 1; n <= 10; n++){
+                        System.out.println(n + " " + (n*10) + " " + (n*100) + " " + (n*1000) + " " );
+                    }
                     break;
                 case 8:
                     break;
                 case 9:
+                    System.out.println("Cuadrado magico");
+                    System.out.println("Ingrese el tamaño del cuadrado a pintar");
+                    num1 = entrada.nextInt();
+
+                    if(num1 >= 1 && num1 <= 20){
+                        //ciclo para las filas
+                        for(int i = 1; i <= num1; i++){
+                            //imprimir columnas
+                            for(int j = 1; j <= num1; j++){
+                                System.out.print("*");
+                            }
+                            System.out.println("");
+                        }
+                    }else{
+                        System.out.println("Ingresa solo numeros entre el 1 y 20");
+                    }
                     break;
                 case 10:
                     break;
