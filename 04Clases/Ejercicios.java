@@ -78,16 +78,15 @@ class Ejercicios{
                     if(num1 != 0){
                         multi *= num1;
                         //multi = multi * num1;
-                    }
-                                  
-                    
+                    }              
                 }while(num1 != 0);
                 System.out.println("El resultado de la operacion es: " + multi);
                 break;
             case 'c':
 
             //ahi hagan la division de tarea :3
-            
+            //dame un num1 / num2
+
                 break;
             default:
                 System.out.println("opcion no valida, ayos UwU/");
@@ -98,14 +97,56 @@ class Ejercicios{
     }
 
     public void Ejercicio2(){
+        //vamos a crear un programa que se encargue de convertir
+        //kg a libras
+        //m/s a km/h
+        //m a yardas y millas
+        double metros = 0.00, kg = 0.00, velocidad = 0.00, cm = 100.00,  pulgadas = 0.0254, gramos = 1000.00, libra = 0.453592, ms = 0.00;
+        double conversion1, conversion2;
+
+        System.out.println("Selecciona la cantidad que deseas convertir acorde a las siguientes unidades: ");
+        System.out.println("a.- Metros a cm y pulgadas");
+        System.out.println("b.- Kilogramos a libras y gramos");
+        System.out.println("c.- m/s a Km/h");
+        System.out.println("d.- Metros a yardas y millas");
+
+        op = entrada.next().charAt(0);
+
+        switch(op){
+            case 'a':
+                System.out.println("Ingresa los metros que deseas transformar: ");
+                metros = entrada.nextDouble();
+                conversion1 = metros * cm;
+                conversion2 = metros * pulgadas;
+                System.out.println("La cantidad en metros es: " + metros + " de m a cm son: " 
+                + conversion1 + " de m a pulgadas son: " + conversion2);
+                break;
+            case 'b':
+                System.out.println("Ingresa los kilogramos que deseas transformar: ");
+                kg = entrada.nextDouble();
+                conversion1 = kg * gramos;
+                conversion2 = kg * libra;
+                System.out.println("La cantidad en kg es: " + kg + " de kg a gramos son: " 
+                + conversion1 + " de kg a libras son: " + conversion2);
+                break;
+            case 'c':
+                //lo quiero de tarea
+                break;    
+            case 'd':
+                //lo quiero de tarea
+                break;
+            default:
+                System.out.println("Opcion no valida :3");
+                break;
+        }
         
     }
 
     public void Ejercicio3(){
-        
+        //mas tarea wiiii
     }
 
     public void Ejercicio4(){
-        
+        //mas tareas doble wiiiii
     }
 }
