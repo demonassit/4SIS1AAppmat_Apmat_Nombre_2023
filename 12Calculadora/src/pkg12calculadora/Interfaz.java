@@ -132,6 +132,36 @@ public class Interfaz extends JFrame implements ActionListener{
             //mostrar resultado
             mostrarresultado.setText(String.valueOf(op.suma()));
         }
+        if(event.getSource() == btnresta){
+            double num1 = Double.parseDouble(txtnum1.getText());
+            op.setNum1(num1);
+            //System.out.println(num1);
+            double num2 = Double.parseDouble(txtnum2.getText());
+            op.setNum2(num2);
+            //System.out.println(num2);
+            //mostrar resultado
+            mostrarresultado.setText(String.valueOf(op.resta()));
+        }
+        if(event.getSource() == btnproducto){
+            double num1 = Double.parseDouble(txtnum1.getText());
+            op.setNum1(num1);
+            //System.out.println(num1);
+            double num2 = Double.parseDouble(txtnum2.getText());
+            op.setNum2(num2);
+            //System.out.println(num2);
+            //mostrar resultado
+            mostrarresultado.setText(String.valueOf(op.producto()));
+        }
+        if(event.getSource() == btndivision){
+            double num1 = Double.parseDouble(txtnum1.getText());
+            op.setNum1(num1);
+            //System.out.println(num1);
+            double num2 = Double.parseDouble(txtnum2.getText());
+            op.setNum2(num2);
+            //System.out.println(num2);
+            //mostrar resultado
+            mostrarresultado.setText(String.valueOf(op.division()));
+        }
     }
 
     

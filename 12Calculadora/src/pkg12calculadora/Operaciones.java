@@ -58,6 +58,7 @@ public class Operaciones {
         try{
             if(num2 == 0){
                 System.out.println("No se puede hacer la division");
+                //return ("No se puede hacer la division");
             }else{
                 return (num1 / num2);
             }
