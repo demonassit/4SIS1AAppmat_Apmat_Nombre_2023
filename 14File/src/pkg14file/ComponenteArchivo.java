@@ -91,16 +91,88 @@ public class ComponenteArchivo extends JFrame implements ActionListener{
             }
         }
         if(e.getSource() == botonguardar){
-            guardarArchivo();
+            try {
+                guardarArchivo();
+            } catch (Exception ex) {
+                java.util.logging.Logger.getLogger(ComponenteArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
         }
     }
 
-    private String abrirArchivo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private String abrirArchivo() throws Exception{
+        //necesitamos es poder abrir un archivo
+        String aux = "";
+        texto = "";
+        
+        try{
+            //lo primero que necesitamos es cargar la ventana del archivo
+            filechooser.showOpenDialog(this);
+            //abrirmos el archivo
+            File abre = filechooser.getSelectedFile();
+            
+            //vamos a ver la ruta del archivo
+            System.out.println(abre.getAbsoluteFile());
+            System.out.println(abre.getAbsolutePath());
+            System.out.println(abre.getPath());
+            
+            
+            try{
+                //este es un comando para que ejecute el archivo
+                Runtime.getRuntime().exec("cmd / c start" + abre);
+            }catch(IOException ioe){
+                //ya valio
+                System.out.println("Error feo " + ioe.getMessage());
+            }
+
+                if(abre!=null){
+                    System.out.println("aqui");
+                    //vamos a ocupar un buffer para recorrer los elementos del archivo
+                    FileReader archivos = new FileReader(abre);
+                    BufferedReader lee = new BufferedReader(archivos);
+                    
+                    //como no sabemos cuanta informacion tiene ocupamos un while
+                    while((aux = lee.readLine()) != null){
+                        System.out.println("hola");
+                        //almaceno el texto del archivo
+                        texto += aux + "/n";
+                    }
+                    lee.close();
+                    System.out.println("hola2");
+                }
+         
+        }catch(Exception e){
+            System.out.println("Error " + e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
+        System.out.println(texto);
+        return texto;
+        
+               
     }
 
-    private void guardarArchivo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void guardarArchivo() throws Exception{
+        try{
+            String nombre = "";
+            JFileChooser file = new JFileChooser();
+            //mostramos el elemento para gaurdar un archivo
+            file.showSaveDialog(this);
+            //con esto escogemos un archivo
+            File guardar = file.getSelectedFile();
+            
+            if(guardar != null){
+                //obtenemos el nombre del archivo
+                nombre = file.getSelectedFile().getName();
+                //tenemos que guardarlo acorde al tipo de formato que queremos
+                FileWriter save = new FileWriter(guardar + ".txt");
+                save.write(areatexto.getText());
+                save.close();
+                JOptionPane.showMessageDialog(null,
+                        "/n El archivo se guardo con exito /n");
+            }
+        }catch(Exception e){
+            System.out.println("Error " + e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
     }
     
 }
