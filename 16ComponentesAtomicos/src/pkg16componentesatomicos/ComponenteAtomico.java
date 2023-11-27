@@ -90,6 +90,10 @@ public class ComponenteAtomico extends JFrame implements ActionListener, ChangeL
         checkbox2.setText("Cuadritos 2");
         checkbox2.setBounds(180, 110, 80, 25);
         
+        etiquetaRadioButton = new JLabel();
+        etiquetaRadioButton.setText("Etiqueta Radio");
+        etiquetaRadioButton.setBounds(20, 140, 100, 23);
+        
         grupoRadios = new ButtonGroup();
         radio1 = new JRadioButton();
         radio1.setText("Radio button");
@@ -102,6 +106,10 @@ public class ComponenteAtomico extends JFrame implements ActionListener, ChangeL
         //agrupo
         grupoRadios.add(radio1);
         grupoRadios.add(radio2);
+        
+        etiquetaToogleButton = new JLabel();
+        etiquetaToogleButton.setText("Etiqueta Toogle");
+        etiquetaToogleButton.setBounds(20, 180, 100, 25);
         
         tooglebutton = new JToggleButton();
         tooglebutton.setText("Activar");
@@ -133,6 +141,10 @@ public class ComponenteAtomico extends JFrame implements ActionListener, ChangeL
         
         separadorHorizontal = new JSeparator();
         separadorHorizontal.setBounds(430, 90, 100, 5);
+        
+        etiquetaSpinner = new JLabel();
+        etiquetaSpinner.setText("JSpinner ");
+        etiquetaSpinner.setBounds(350, 110, 100, 25);
         
         spinner = new JSpinner();
         spinner.setBounds(430, 110, 50, 25);
@@ -190,12 +202,60 @@ public class ComponenteAtomico extends JFrame implements ActionListener, ChangeL
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        /*
+        vamos a validar cuando se seleccione un check, un radio o
+        el toogle tenga una acción
+        */
+        
+        if(e.getSource() == boton){
+            String salida = "";
+            salida = validaEventos();
+            JOptionPane.showInputDialog(null, salida);
+        }
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        /*
+        Estas acciones sirven para elementos de cambio de evento
+        como por ejemplo mantener o soltar el mouse arrastrar, etc
+        En este caso sirven especificamente para los deslizadores
+        */
+        int valor;
+        if(e.getSource() == deslizador){
+            valor = deslizador.getValue();
+            barra.setValue(valor);
+            spinner.setValue(valor);
+        }
+        
+        if(e.getSource() == spinner){
+            valor = (Integer)spinner.getValue();
+            deslizador.setValue(valor);
+            barra.setValue(valor);
+        }
+    }
+
+    private String validaEventos() {
+        String cadena = "Selecciona: \n";
+        if(checkbox1.isSelected()){
+            cadena+="check1\n";
+        }
+        if(checkbox2.isSelected()){
+            cadena+="check2\n";
+        }
+        if(radio1.isSelected()){
+            cadena+="radio1\n";
+        }
+        if(radio2.isSelected()){
+            cadena+="radio2\n";
+        }
+        if(tooglebutton.isSelected()){
+            cadena+="toogle activo\n";
+        }else{
+            cadena+="toogle inactivo\n";
+        }
+        cadena+= combo.getSelectedItem() + "\n";
+        return cadena;
     }
 
     
