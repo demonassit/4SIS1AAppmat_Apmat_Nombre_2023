@@ -19,7 +19,7 @@ public class Persona {
     
     }
 
-    public Persona(String nombre, String documento, String direccion, String telefono, String profesion, int edad, double nota1, double nota2, double nota3, double promedio) {
+    public Persona(String documento, String nombre, String direccion, String telefono, String profesion, int edad, double nota1, double nota2, double nota3, double promedio) {
         this.nombre = nombre;
         this.documento = documento;
         this.direccion = direccion;
