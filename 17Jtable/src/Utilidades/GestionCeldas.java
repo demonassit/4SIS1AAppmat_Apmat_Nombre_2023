@@ -34,10 +34,10 @@ public class GestionCeldas extends DefaultTableCellRenderer{
     //aqui van a agregar los iconos de busqueda
     private ImageIcon iconoGuardar = 
             new ImageIcon(getClass()
-                    .getResource("/Recursos/nombredelelemento.png"));
+                    .getResource("/Recursos/ico_guardar.png"));
     private ImageIcon iconoBuscar = 
             new ImageIcon(getClass()
-                    .getResource("/Recursos/nombredelelemento.png"));
+                    .getResource("/Recursos/ico_buscar.png"));
     
     public GestionCeldas(){
     
