@@ -191,7 +191,7 @@ public class VentanaTabla extends JFrame implements MouseListener{
                         new GestionCeldas("icono"));
         
         //debemos recorrer el resto y asignar los datos
-    
+        
         for(int i = 0; i < titulos.length-7; i++){
             System.out.println(i);
             tablaPersonas.getColumnModel().getColumn(
@@ -254,7 +254,36 @@ public class VentanaTabla extends JFrame implements MouseListener{
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("si entro nomas");
+        //debemos de saber donde le dieron clic fila y columna
+        int fila = tablaPersonas.rowAtPoint(e.getPoint());
+        int columna = tablaPersonas.columnAtPoint(e.getPoint());
+        System.out.println("si entro");
+        //necesito saber si es perfil o si es evento
+        if(columna == Utilidades.PERFIL){
+            validaSeleccionMouse(fila);
+        }else if(columna == Utilidades.EVENTO){
+            JOptionPane.showMessageDialog(null,
+                    "Evento del otro icono");
+        }
+    }
+    
+    private void validaSeleccionMouse(int fila) {
+        Utilidades.filaseleccionada = fila;
+        System.out.println("tambien aqui");
+        //teniendo la fila se puede obtener el objeto
+        Persona mipersona = new Persona();
+        
+        mipersona.setDocumento(tablaPersonas.getValueAt(fila, 
+                Utilidades.DOCUMENTO).toString());
+        mipersona.setDocumento(tablaPersonas.getValueAt(fila, 
+                Utilidades.NOMBRE).toString());
+        
+        String info = "Informacion Persona";
+        info += "Documento : " + mipersona.getDocumento() + "\n";
+        info += "Nombre : " + mipersona.getNombre()+ "\n";
+        
+        JOptionPane.showMessageDialog(null, info);
     }
 
     @Override
@@ -269,13 +298,26 @@ public class VentanaTabla extends JFrame implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("si entro nomas");
+        //debemos de saber donde le dieron clic fila y columna
+        int fila = tablaPersonas.rowAtPoint(e.getPoint());
+        int columna = tablaPersonas.columnAtPoint(e.getPoint());
+        System.out.println("si entro");
+        //necesito saber si es perfil o si es evento
+        if(columna == Utilidades.PERFIL){
+            validaSeleccionMouse(fila);
+        }else if(columna == Utilidades.EVENTO){
+            JOptionPane.showMessageDialog(null,
+                    "Evento del otro icono");
+        }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
 
     
 
